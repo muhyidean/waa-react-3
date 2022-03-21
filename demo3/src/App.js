@@ -1,16 +1,16 @@
-import {useState} from 'react'; 
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Product from './components/Product/Product';
 import Dashboard from './containers/DashBoard/Dashboard';
-import Products from './containers/Products/Products';
 
 function App() {
 
 
   return (
     <div className="App">
+      <BrowserRouter>
         <h1> Welcome WAA </h1>
         <Dashboard />
+      </BrowserRouter>
     </div>
   );
 }

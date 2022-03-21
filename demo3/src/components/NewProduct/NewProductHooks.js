@@ -1,12 +1,15 @@
 import axios from "axios";
-import { useState , useRef} from "react";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router";
 import './NewProduct.css';
 
 const NewProductHook = (props) => {
 
     const newProductForm = useRef();
 
-    const ProductHandler = () =>{
+    const navigate = useNavigate();
+
+    const ProductHandler = () => {
         const form = newProductForm.current;
         const data = {
             name: form['name'].value,
@@ -14,17 +17,18 @@ const NewProductHook = (props) => {
         };
         console.log(data);
         axios.post('http://localhost:8080/api/v1/products', data)
-        .then(data => {
-            console.log('Success', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        })
+            .then(data => {
+                navigate('/products');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            })
     }
+
     return (
         <div className="NewProduct">
             With Ref
-         <form ref={newProductForm}>
+            <form ref={newProductForm}>
                 <h1>Add a Product</h1>
 
                 <label>Name</label>
@@ -38,8 +42,8 @@ const NewProductHook = (props) => {
                     label={'price'}
                     name={'price'}
                 />
-                </form>
-                <button onClick={ProductHandler}>Add Product </button>
+            </form>
+            <button onClick={ProductHandler}>Add Product </button>
         </div>
     );
 

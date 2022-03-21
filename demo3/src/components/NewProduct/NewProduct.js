@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useNavigate } from "react-router";
 import './NewProduct.css';
 const NewProduct = (props) => {
+
+ 
 
     return (
         <div className="NewProduct">
