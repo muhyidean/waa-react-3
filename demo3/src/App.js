@@ -3,8 +3,6 @@ import './App.css';
 import Dashboard from './containers/DashBoard/Dashboard';
 
 function App() {
-
-
   return (
     <div className="App">
       <BrowserRouter>

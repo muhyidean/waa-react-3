@@ -1,6 +1,5 @@
 import Product from "../../components/Product/Product"
 import { useEffect, useState } from 'react'
-
 import axios from 'axios';
 import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import { Link } from "react-router-dom";
@@ -54,7 +53,7 @@ const Products = (props) => {
             </Link>
         )
     });
-    return <div>
+    return <div className="Product">
         {products}
         <ProductDetails />
     </div>;

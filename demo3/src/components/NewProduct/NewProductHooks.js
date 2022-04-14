@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router";
 import './NewProduct.css';
 
@@ -9,7 +9,8 @@ const NewProductHook = (props) => {
 
     const navigate = useNavigate();
 
-    const ProductHandler = () => {
+    const ProductHandler = (e) => {
+        e.preventDefault();
         const form = newProductForm.current;
         const data = {
             name: form['name'].value,
@@ -28,7 +29,7 @@ const NewProductHook = (props) => {
     return (
         <div className="NewProduct">
             With Ref
-            <form ref={newProductForm}>
+            <form ref={newProductForm} onSubmit={ProductHandler}>
                 <h1>Add a Product</h1>
 
                 <label>Name</label>
@@ -42,8 +43,9 @@ const NewProductHook = (props) => {
                     label={'price'}
                     name={'price'}
                 />
+                <button>Add Product </button>
             </form>
-            <button onClick={ProductHandler}>Add Product </button>
+
         </div>
     );
 
