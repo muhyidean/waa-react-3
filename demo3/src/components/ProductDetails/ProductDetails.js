@@ -54,7 +54,7 @@ const ProductDetails = (props) => {
                     <div style={{ textAlign: "left" }}>
                         {space} Reviews <br />
                         {productDetail.reviews != null ? productDetail.reviews.map(review => {
-                            return <Review comment={review.comment} />
+                            return <Review comment={review.comment} key={review.id}/>
                         }) : null}
                     </div>
                 </div>

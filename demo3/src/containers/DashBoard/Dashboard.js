@@ -9,8 +9,7 @@ export default function Dashboard() {
   
 
     return (
-        <React.Fragment>
-            
+        <React.Fragment>   
             <div className='header'>
                 <Header />
             </div>

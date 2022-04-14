@@ -11,8 +11,6 @@ export default function PageRoutes(props) {
                 <Route path="products" element={<Products />}>
                     <Route path=":id" element={<ProductDetails />} />
                 </Route>
-      
-
             <Route path="create-product" element={<NewProductHook />} />
         </Routes>
     );
