@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState, Fragment, useCallback, useMemo, useRef } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Review from "../Review/Review";
 import './ProductDetails.css';
 
 const ProductDetails = (props) => {
 
     const params = useParams();
-
+    const navigate = useNavigate();
     const [productDetail, setProductDetail] = useState({});
 
 
@@ -23,6 +23,16 @@ const ProductDetails = (props) => {
             }
         }, [params.id])
 
+    const deleteButtonClicked = (id) => {
+        axios.delete('http://localhost:8080/api/v1/products/' + id)
+            .then(response => {
+                // fetchProducts();
+                navigate('/')
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
 
 
     const space = <Fragment>&nbsp;&nbsp;</Fragment>;
@@ -48,6 +58,10 @@ const ProductDetails = (props) => {
                         }) : null}
                     </div>
                 </div>
+                <input
+                    type="button"
+                    value="Delete"
+                    onClick={()=> { deleteButtonClicked(params.id) }} />
             </div>
         );
     }

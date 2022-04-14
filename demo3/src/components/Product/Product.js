@@ -2,17 +2,12 @@
 const Product = (props) => {
 
     return (
-        <div className="Content" onClick={props.setSelected}>
+        <div className="Content" >
             <h3> {props.name}</h3>
             <div className="Field">
                 {props.price}
             </div>
-            <div className="Edit">
-                <input
-                    type="button"
-                    value="Delete"
-                    onClick={props.deleteProduct} />
-            </div>
+            
 
         </div>
     );

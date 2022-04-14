@@ -29,16 +29,6 @@ const Products = (props) => {
     },
         [])
 
-    const deleteButtonClicked = (id) => {
-        axios.delete('http://localhost:8080/api/v1/products/' + id)
-            .then(response => {
-                fetchProducts();
-            })
-            .catch(err => {
-                console.error(err);
-            })
-    }
-
 
     const products = productsState.map(product => {
         return (
@@ -48,7 +38,6 @@ const Products = (props) => {
                     price={product.price}
                     id={product.id}
                     key={product.id}
-                    deleteProduct={() => { deleteButtonClicked(product.id) }}
                 />
             </Link>
         )
