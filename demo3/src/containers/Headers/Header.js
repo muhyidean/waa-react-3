@@ -14,7 +14,7 @@ const Header = () => {
                 {/* <img width="300" height="100" src={logo} alt="Logo" /> */}
                 <ul>
                     <li><Link to="/products"> Products</Link></li>
-                    <li><Link to="/create-product"> New Post</Link></li>
+                    <li><Link to="/create-product"> Add Product</Link></li>
                 </ul>
             </nav>
         </header>
